@@ -1,0 +1,1 @@
+Start-Process PowerShell -Verb RunAs -ArgumentList https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/changedns.ps1
