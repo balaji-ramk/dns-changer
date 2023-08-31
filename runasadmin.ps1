@@ -1,7 +1,10 @@
-mkdir stuff
+$currentdir = [System.Environment]::CurrentDirectory
+$tempdir = $currentdir + "\stuff"
+$filepath = $currentdir + "\stuff\changedns.ps1"
+
+mkdir $tempdir
+
 $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/changedns.ps1"
-Invoke-WebRequest $DownloadURL -outfile stuff\changedns.ps1
-$DNSChangerFile = [System.Environment]::CurrentDirectory + "\stuff\changedns.ps1"
-$tempdir = [System.Environment]::CurrentDirectory + "\stuff\"
-Start-Process PowerShell -Verb RunAs -ArgumentList $DNSChangerFile
+Invoke-WebRequest $DownloadURL -outfile $filepath
+Start-Process PowerShell -Verb RunAs -ArgumentList $filepath
 Remove-Item -Force -Recurse $tempdir
