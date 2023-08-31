@@ -1,8 +1,8 @@
 #variables
 $currentdir = [System.Environment]::CurrentDirectory
 $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/changedns.ps1"
-$tempdir = $currentdir + "\dnschanger_temp"
-$filepath = $tempdir + "\changedns.ps1"
+# $tempdir = $currentdir + "\dnschanger_temp"
+$filepath = $currentdir + "\dnschanger_temp\changedns.ps1"
 
 #commands
 New-Item -itemtype Directory -Path dnschanger_temp
