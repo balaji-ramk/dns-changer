@@ -11,6 +11,6 @@ Invoke-WebRequest $DownloadURL -OutFile $filepath
 
 Write-Output $filepath
 Start-Process PowerShell -Verb RunAs -ArgumentList $filepath
-# Remove-Item -Force -Recurse $tempdir
+Remove-Item -Force -Recurse $tempdir
 
 Set-Location ..
