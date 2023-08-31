@@ -1,12 +1,11 @@
 # variables
+# $currentdir = [System.Environment]::CurrentDirectory
 $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/changedns.ps1"
-$currentdir = [System.Environment]::CurrentDirectory
-$filepath = $currentdir + "Downloads\changedns.ps1"
-Set-Location Downloads
+$tempdir = "$env:userprofile\Downloads\dns-changer-temp"
+$filepath = $tempdir + "\changedns.ps1"
 
 # commands
-# New-Item -itemtype Directory -Path dnschanger_temp
-Invoke-WebRequest $DownloadURL -OutFile "changedns.ps1"
+New-Item -itemtype Directory -Path dns-changer-temp
+Invoke-WebRequest $DownloadURL -OutFile $filepath
 Start-Process PowerShell -Verb RunAs -ArgumentList $filepath
-Write-Output $filepath
-# Remove-Item -Force -Recurse dnschanger_temp
+# Remove-Item -Force -Recurse $tempdir
