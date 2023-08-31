@@ -15,7 +15,7 @@ function Show-Menu
     
      Write-Host “1: Press 1 to change DNS”
      Write-Host “2: Press 2 for a soft reset”
-     Write-Host “3: Press 3 for a hard reset (you will lose your passwords)”
+     Write-Host “3: Press 3 for a hard reset”
      Write-Host “0: Press 0 to quit.”
 }
 
