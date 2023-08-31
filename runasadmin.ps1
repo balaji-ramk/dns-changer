@@ -5,7 +5,9 @@ $tempdir = "$env:userprofile\Downloads\dns-changer-temp"
 $filepath = $tempdir + "\changedns.ps1"
 
 # commands
-New-Item -itemtype Directory -Path dns-changer-temp
+New-Item -itemtype Directory -Path $tempdir
 Invoke-WebRequest $DownloadURL -OutFile $filepath
+
+Write-Output $filepath
 Start-Process PowerShell -Verb RunAs -ArgumentList $filepath
 # Remove-Item -Force -Recurse $tempdir
