@@ -1,7 +1,7 @@
 # variables
 $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/"
 $tempdir = "$env:userprofile\Downloads\dns-changer-temp\"
-$filepath = $tempdir + "changedns.ps1"
+# $option = ""
 
 Set-Location $env:userprofile\Downloads
 mkdir dns-changer-temp
@@ -36,16 +36,19 @@ do
            '1' {
                 Clear-Host
                 $DownloadURL = $DownloadURL + "changedns.ps1"
+                $filepath = $tempdir + "changedns.ps1"
                 Launcher
             
            } '2' {
                 Clear-Host
                 $DownloadURL = $DownloadURL + "softreset.ps1"
+                $filepath = $tempdir + "softreset.ps1"
                 Launcher
             
            } '3' {
                 Clear-Host
                 $DownloadURL = $DownloadURL + "hardreset.ps1"
+                $filepath = $tempdir + "hardreset.ps1"
                 Launcher
             
            } '0' {
