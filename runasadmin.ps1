@@ -10,4 +10,4 @@ Write-Output $tempdir
 Write-Output $filepath
 Invoke-WebRequest $DownloadURL -outfile $filepath
 Start-Process PowerShell -Verb RunAs -ArgumentList $filepath
-Remove-Item -Force -Recurse $tempdir
+# Remove-Item -Force -Recurse $tempdir
