@@ -5,7 +5,9 @@ $tempdir = "$env:userprofile\Downloads\dns-changer-temp"
 $filepath = $tempdir + "\changedns.ps1"
 
 # commands
-New-Item -itemtype Directory -Path $tempdir
+Set-Location Downloads
+# New-Item -itemtype Directory -Path $tempdir
+mkdir dns-changer-temp
 Invoke-WebRequest $DownloadURL -OutFile $filepath
 
 Write-Output $filepath
