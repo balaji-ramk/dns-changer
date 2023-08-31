@@ -24,6 +24,7 @@ function Launcher
     Invoke-WebRequest $DownloadURL -OutFile $filepath
     Write-Output $filepath
     Start-Process PowerShell -Verb RunAs -ArgumentList $filepath
+    $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/"
 }
 
 do
