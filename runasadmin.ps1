@@ -8,5 +8,5 @@ $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/c
 #commands
 # New-Item -itemtype Directory -Path dnschanger_temp
 Invoke-WebRequest $DownloadURL -OutFile "changedns.ps1"
-Start-Process PowerShell -Verb RunAs -ArgumentList "changedns.ps1"
+Start-Process PowerShell -Verb RunAs -ArgumentList ".\changedns.ps1"
 # Remove-Item -Force -Recurse dnschanger_temp
