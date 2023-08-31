@@ -19,7 +19,7 @@ function Show-Menu
      Write-Host “0: Press 0 to quit.”
 }
 
-function Worker
+function Launcher
 {
     Invoke-WebRequest $DownloadURL -OutFile $filepath
     Write-Output $filepath
@@ -35,15 +35,18 @@ do
            '1' {
                 Clear-Host
                 $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/changedns.ps1"
-                Worker
+                Launcher
+            
            } '2' {
                 Clear-Host
                 $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/softreset.ps1"
-                Worker
+                Launcher
+            
            } '3' {
                 Clear-Host
                 $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/hardreset.ps1"
-                Worker
+                Launcher
+            
            } '0' {
                 return
            }
