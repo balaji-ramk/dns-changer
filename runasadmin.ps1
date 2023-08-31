@@ -8,4 +8,4 @@ $filepath = $tempdir + "\changedns.ps1"
 New-Item -itemtype Directory -Path dnschanger_temp
 Invoke-WebRequest $DownloadURL -OutFile "dnschanger_temp\changedns.ps1"
 Start-Process PowerShell -Verb RunAs -ArgumentList $filepath
-Remove-Item -Force -Recurse dnschanger_temp
+# Remove-Item -Force -Recurse dnschanger_temp
