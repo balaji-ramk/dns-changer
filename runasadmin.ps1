@@ -1,5 +1,5 @@
 # variables
-$DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/changedns.ps1"
+$DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/"
 $tempdir = "$env:userprofile\Downloads\dns-changer-temp\"
 $filepath = $tempdir + "changedns.ps1"
 
@@ -34,17 +34,17 @@ do
      {
            '1' {
                 Clear-Host
-                $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/changedns.ps1"
+                $DownloadURL = $DownloadURL + "changedns.ps1"
                 Launcher
             
            } '2' {
                 Clear-Host
-                $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/softreset.ps1"
+                $DownloadURL = $DownloadURL + "softreset.ps1"
                 Launcher
             
            } '3' {
                 Clear-Host
-                $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/hardreset.ps1"
+                $DownloadURL = $DownloadURL + "hardreset.ps1"
                 Launcher
             
            } '0' {
