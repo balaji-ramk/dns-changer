@@ -1,24 +1,19 @@
 function Show-Menu
 {
-     param (
-           [string]$Title = 'Choose an Option'
-     )
-     Clear-Host
-     Write-Host “================ $Title ================”
-    
-     Write-Host “1: Press 1 to change DNS”
-     Write-Host “2: Press 2 for a soft reset”
-     Write-Host “3: Press 3 for a hard reset”
-     Write-Host “0: Press 0 to quit.”
+    Write-Host “================ Choose an Option ================”
+    Write-Host “1: Press 1 to change DNS”
+    Write-Host “2: Press 2 for a soft reset”
+    Write-Host “3: Press 3 for a hard reset”
+    Write-Host “0: Press 0 to quit.”
 }
 
 
 do
 {
-     Show-Menu
-     $choice = Read-Host “Please make a selection”
-     switch ($choice)
-     {
+    Show-Menu
+    $choice = Read-Host “Please make a selection”
+    switch ($choice)
+    {
            '1' {
                 Clear-Host
                 Write-Output "Changing DNS"
@@ -44,7 +39,7 @@ do
            } '0' {
                 return
            }
-     }
-     pause
+    }
+    pause
 }
 until ($input -eq '0')
