@@ -8,6 +8,5 @@ Invoke-WebRequest $DownloadURL -OutFile $filepath
 Write-Output $filepath
 Start-Process PowerShell -Verb RunAs -ArgumentList $filepath
 
-#before exiting
-Remove-Item -Force -Recurse dns-changer-temp
+# Remove-Item -Force -Recurse dns-changer-temp
 Set-Location ..
