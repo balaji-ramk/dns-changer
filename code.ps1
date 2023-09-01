@@ -1,33 +1,39 @@
 function Show-Menu
 {
+    # Clear-Host
+    # Write-Host “================ Choose an Option ================”
+    # Write-Host “1: Press 1 to change DNS”
+    # Write-Host “2: Press 2 for a soft reset”
+    # Write-Host “3: Press 3 for a hard reset”
+    # Write-Host “0: Press 0 to quit.”
     Clear-Host
-    Write-Host “================ Choose an Option ================”
-    Write-Host “1: Press 1 to change DNS”
-    Write-Host “2: Press 2 for a soft reset”
-    Write-Host “3: Press 3 for a hard reset”
-    Write-Host “0: Press 0 to quit.”
+    Write-Host Choose an Option: 
+    Write-Host "1. Press 1 to change the DNS Servers"
+    Write-Host "2. Press 2 for a soft reset for internet"
+    Write-Host "3. Press 3 for a hard reset for internet"
+    Write-Host "0. Press 0 to exit"
 }
 
 
 do
 {
     Show-Menu
-    $choice = Read-Host “Please make a selection”
+    $choice = Read-Host "Please make a selection: "
     switch ($choice)
     {
            '1' {
                 Clear-Host
                 Write-Output "Changing DNS"
                 Set-DNSClientServerAddress * -ServerAddresses ("1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001")
-                Write-Output DNS Servers Changed System-wide!
-                pause
-            
+                Write-Output "DNS Servers Changed System-wide!"
+                # pause
+
            } '2' {
                 Clear-Host
                 ipconfig /release
                 ipconfig /flushdns
                 ipconfig /renew
-                pause
+                # pause
             
            } '3' {
                 Clear-Host
@@ -35,7 +41,7 @@ do
                 net start wlansvc
                 netsh lan delete profile *
                 netsh wlan delete profile *
-                pause
+                # pause
             
            } '0' {
                 return
