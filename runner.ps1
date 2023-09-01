@@ -4,7 +4,7 @@ $tempdir = $userdir + "\Downloads"
 $filepath = $userdir + "\Downloads\dns-changer-temp\code.ps1"
 
 Set-Location $tempdir
-mkdir dns-changer-temp
+New-Item -ItemType Directory dns-changer-temp
 
 Invoke-WebRequest $DownloadURL -OutFile $filepath
 Write-Output $filepath
