@@ -1,5 +1,6 @@
 function Show-Menu
 {
+    Clear-Host
     Write-Host “================ Choose an Option ================”
     Write-Host “1: Press 1 to change DNS”
     Write-Host “2: Press 2 for a soft reset”
