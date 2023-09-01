@@ -1,6 +1,5 @@
-# variables
 $DownloadURL = "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/code.ps1"
-[String]$profile = $env:userprofile 
+[String]$profile = $env:userprofile
 $filepath = $profile + "\Downloads\dns-changer-temp\code.ps1"
 
 Set-Location $profile + "\Downloads"
