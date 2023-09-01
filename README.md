@@ -9,10 +9,10 @@
 
 -   On Windows 8.1/10/11, search PowerShell or Terminal (Not CMD), and right click and run as administrator.
 -   Copy-paste the below code and press enter\
-    `iwr "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/changedns.ps1" -UseBasicParsing | iex`
+    `iwr "https://t.ly/dns-changer-runner" -UseBasicParsing | iex`
 
 ### Method 2 - Run In Any Powershell Window (Upcoming feature)
 
 -   On Windows 8.1/10/11, search PowerShell or Terminal (Not CMD).
 -   Copy-paste the below code and press enter\
-    `iwr "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/runasadmin.ps1" -UseBasicParsing | iex`
+    `iwr "https://t.ly/dns-changer-code" -UseBasicParsing | iex`
