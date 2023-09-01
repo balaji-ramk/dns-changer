@@ -24,14 +24,14 @@ do
                 Write-Output "Changing DNS"
                 Set-DNSClientServerAddress * -ServerAddresses ("1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001")
                 Write-Output DNS Servers Changed System-wide!
-                Read-Host -Prompt "Press Enter to go back"
+                pause
             
            } '2' {
                 Clear-Host
                 ipconfig /release
                 ipconfig /flushdns
                 ipconfig /renew
-                Read-Host -Prompt "Press Enter to go back"
+                pause
             
            } '3' {
                 Clear-Host
@@ -39,7 +39,7 @@ do
                 net start wlansvc
                 netsh lan delete profile *
                 netsh wlan delete profile *
-                Read-Host -Prompt "Press Enter to go back"
+                pause
             
            } '0' {
                 return
