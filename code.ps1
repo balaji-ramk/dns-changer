@@ -90,7 +90,7 @@ do
                 Select-DNS($ipv41,$ipv42,$ipv61,$ipv62)
                #  Set-DNSClientServerAddress * -ServerAddresses ($ipv41,$ipv42,$ipv61,$ipv62)
                 ipconfig /flushdns
-                Write-Output $ipv41,$ipv42,$ipv61,$ipv62
+               #  Write-Output $ipv41,$ipv42,$ipv61,$ipv62
                 Write-Output "DNS Servers Changed System-wide!"
 
            } '2' {
