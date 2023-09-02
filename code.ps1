@@ -74,6 +74,7 @@ function Select-DNS
                     Set-DNSClientServerAddress * -ServerAddresses ("194.242.2.3",,"2a07:e340::3")
                     
                } '4' {
+                    Clear-Host
                     Write-Host "Changing to Quad9 Privacy DNS!"
                     Set-DNSClientServerAddress * -ServerAddresses ("9.9.9.9","149.112.112.112","2620:fe::fe","2620:fe::9")
                } '5' {
