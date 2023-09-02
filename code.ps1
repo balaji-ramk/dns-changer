@@ -1,7 +1,37 @@
-$ipv41 = ""
-$ipv42 = ""
-$ipv61 = ""
-$ipv62 = ""
+Function launcher()
+{
+  #Get current user context
+  $CurrentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
+  
+  #Check user is running the script is member of Administrator Group
+  if($CurrentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator))
+  {
+       Write-host "Script is running with Administrator privileges!"
+  }
+  else
+    {
+       #Create a new Elevated process to Start PowerShell
+       $ElevatedProcess = New-Object System.Diagnostics.ProcessStartInfo "PowerShell";
+ 
+       # Specify the current script path and name as a parameter
+       $ElevatedProcess.Arguments = "& '" + $script:MyInvocation.MyCommand.Path + "'"
+ 
+       #Set the Process to elevated
+       $ElevatedProcess.Verb = "runas"
+ 
+       #Start the new elevated process
+       [System.Diagnostics.Process]::Start($ElevatedProcess)
+ 
+       #Exit from the current, unelevated, process
+       Exit
+ 
+    }
+}
+ 
+#Check Script is running with Elevated Privileges
+launcher
+ 
+#Script starts here.
 function Show-Menu
 {
     Clear-Host
@@ -22,9 +52,8 @@ function Show-DNSOptions{
      Write-Host "5. Google (Not Recommended unless necessary)"
      Write-Host "0. Press 0 to exit"
 }
-function Select-DNS($ipv41,$ipv42,$ipv61,$ipv62)
+function Select-DNS
 {
-     "ipv41: $ipv41; ipv42: $ipv42; ipv61: $ipv61; ipv62: $ipv62"
      Show-DNSOptions
      $choice = Read-Host "Please make a selection: "
      switch ($choice)
@@ -32,45 +61,25 @@ function Select-DNS($ipv41,$ipv42,$ipv61,$ipv62)
                '1' {
                     Clear-Host
                     Write-Output "Changing to Clouflare DNS"
-                    $ipv41 = "1.1.1.1"
-                    $ipv42 = "1.0.0.1"
-                    $ipv61 = "2606:4700:4700::1111"
-                    $ipv62 = "2606:4700:4700::1001"
-                    Set-DNSClientServerAddress * -ServerAddresses ($ipv41,$ipv42,$ipv61,$ipv62)
+                    Set-DNSClientServerAddress * -ServerAddresses ("1.1.1.1","1.0.0.1","2606:4700:4700::1111","2606:4700:4700::1001")
 
                } '2' {
                     Clear-Host
                     Write-Host "Changing to Adguard Public DNS!"
-                    $ipv41 = "94.140.14.14"
-                    $ipv42 = "94.140.15.15"
-                    $ipv61 = "2a10:50c0::ad1:ff"
-                    $ipv62 = "2a10:50c0::ad2:ff"
-                    Set-DNSClientServerAddress * -ServerAddresses ($ipv41,$ipv42,$ipv61,$ipv62)
+                    Set-DNSClientServerAddress * -ServerAddresses ("94.140.14.14","94.140.15.15","2a10:50c0::ad1:ff","2a10:50c0::ad2:ff")
                
                } '3' {
                     Clear-Host
                     Write-Host "Changing to Mullvad Adblocking DNS!"
-                    $ipv41 = "194.242.2.3"
-                    $ipv42 = ""
-                    $ipv61 = "2a07:e340::3"
-                    $ipv62 = ""
-                    Set-DNSClientServerAddress * -ServerAddresses ($ipv41,$ipv42,$ipv61,$ipv62)
+                    Set-DNSClientServerAddress * -ServerAddresses ("194.242.2.3",,"2a07:e340::3")
                     
                } '4' {
                     Write-Host "Changing to Quad9 Privacy DNS!"
-                    $ipv41 = "9.9.9.9"
-                    $ipv42 = "149.112.112.112"
-                    $ipv61 = "2620:fe::fe"
-                    $ipv62 = "2620:fe::9"
-                    Set-DNSClientServerAddress * -ServerAddresses ($ipv41,$ipv42,$ipv61,$ipv62)
+                    Set-DNSClientServerAddress * -ServerAddresses ("9.9.9.9","149.112.112.112","2620:fe::fe","2620:fe::9")
                } '5' {
                     Clear-Host
                     Write-Host "Changing to Google Public DNS!"
-                    $ipv41 = "8.8.8.8"
-                    $ipv42 = "8.8.4.4"
-                    $ipv61 = "2001:4860:4860::8888"
-                    $ipv62 = "2001:4860:4860::8844"
-                    Set-DNSClientServerAddress * -ServerAddresses ($ipv41,$ipv42,$ipv61,$ipv62)
+                    Set-DNSClientServerAddress * -ServerAddresses ("8.8.8.8","8.8.4.4","2001:4860:4860::8888","2001:4860:4860::8844")
                } '0' {
                     return
                }
@@ -87,10 +96,8 @@ do
                 Clear-Host
                 Write-Output "Changing DNS"
                 Show-DNSOptions
-                Select-DNS($ipv41,$ipv42,$ipv61,$ipv62)
-               #  Set-DNSClientServerAddress * -ServerAddresses ($ipv41,$ipv42,$ipv61,$ipv62)
+                Select-DNS
                 ipconfig /flushdns
-               #  Write-Output $ipv41,$ipv42,$ipv61,$ipv62
                 Write-Output "DNS Servers Changed System-wide!"
 
            } '2' {
