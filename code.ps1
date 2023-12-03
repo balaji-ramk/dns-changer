@@ -24,7 +24,7 @@ Function launcher()
  
      #   #Exit from the current, unelevated, process
      #   Exit
-     Start-Process PowerShell -Verb RunAs -ArgumentList 'iwr "https://raw.githubusercontent.com/balaji-ramk/dns-changer/main/code.ps1" -UseBasicParsing | iex'
+     Start-Process PowerShell -Verb RunAs -ArgumentList 'iwr "https://raw.githubusercontent.com/balaji-ramk/network-helper/main/code.ps1" -UseBasicParsing | iex'
      Exit
  
     }
